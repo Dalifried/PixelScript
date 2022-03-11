@@ -3,7 +3,6 @@ const IMAGES_MAP = document.getElementById("images_map");
 const CLOCK = setInterval(clock,20);
 let LEVEL = 1;
 function start() {
-    g = new object(0,0,"./gold.png","images_map");
     p = new object(0,0,"./player.png","player_map");
     LCC();
 }
@@ -62,7 +61,7 @@ function object(x,y,src,parent) {
     document.getElementById([parent]).appendChild(this.img);
     this.img.setAttribute("left",`${this.x}`);
     this.img.setAttribute("top",`${this.y}`);
-    this.m = function() {
+    this.move = function() {
         this.img.style.top = `${this.y}px`;
         this.img.style.left = `${this.x}px`;
         this.x += this.SPDX;
@@ -72,10 +71,9 @@ function object(x,y,src,parent) {
 // level clear & create (LCC)
 function LCC() {
     switch (LEVEL) {
-    case 6:
+    case 1:
         p.x = 0;
         p.y = 0;
-        g.x = 0;
     break;
     case 2:
         
